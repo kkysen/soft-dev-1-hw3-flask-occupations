@@ -1,10 +1,10 @@
 #!/usr/bin/python
 
 """
-Khyber Sen
+Khyber Sen and Michael Ruvinshteyn
 SoftDev1 pd7
-HW4 -- Fill Up Yer Flask
-2017-09-22
+HW5 -- ... and Now Enjoy Its Contents
+2017-09-26
 """
 
 __author__ = 'Khyber Sen'
