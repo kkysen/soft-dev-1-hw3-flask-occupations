@@ -3,36 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Occupations</title>
+    <link rel="stylesheet" type="text/css" href="static/occupations.css">
 </head>
 <body>
-
-<table border="1">
-    <tr>
-        <td><b>Occupation</b></td>
-        <td><b>Percent</b></td>
-    </tr>
-
-    {% for occupation in occupations %}
+<div class="center">
+    <table id="occupations-table">
         <tr>
-            {% if occupation.link %}
-                <td><a href="{{ occupation.link }}" target="_blank">{{ occupation.name }}</a></td>
-            {% else %}
-                <td>{{ occupation.name }}</td>
-            {% endif %}
-
-            <td>{{ occupation.percent }}</td>
+            <th>Occupation</th>
+            <th>Percent</th>
         </tr>
-    {% endfor %}
-
-</table>
-
-<h3>
-    {% if random_occupation.link %}
-        <a href="{{ random_occupation.link }}" target="_blank">{{ random_occupation.name }}</a>
-    {% else %}
-        {{ random_occupation.name }}
-    {% endif %}
-</h3>
-
+        {% for occupation in occupations.occupations %}
+            <tr>
+                <td>
+                    {% if occupation.link %}
+                        <a href="{{ occupation.link }}" target="_blank">{{ occupation.name }}</a>
+                    {% else %}
+                        {{ occupation.name }}
+                    {% endif %}
+                </td>
+                <td>{{ occupation.percent }}%</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>Total</td>
+            <td>{{ occupations.total_percent }}%</td>
+        </tr>
+    </table>
+</div>
+<div class="center">
+    <p id="random-occupation">
+        Your Chosen Occupation:
+        {% if random_occupation.link %}
+            <a href="{{ random_occupation.link }}" target="_blank">{{ random_occupation.name }}</a>
+        {% else %}
+            {{ random_occupation.name }}
+        {% endif %}
+    </p>
+</div>
 </body>
 </html>
