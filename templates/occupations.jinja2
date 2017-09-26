@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Occupations</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <td><b>Occupation</b></td>
+        <td><b>Percent</b></td>
+    </tr>
+
+    {% for occupation in occupations %}
+        <tr>
+            {% if occupation.link %}
+                <td><a href="{{ occupation.link }}" target="_blank">{{ occupation.name }}</a></td>
+            {% else %}
+                <td>{{ occupation.name }}</td>
+            {% endif %}
+
+            <td>{{ occupation.percent }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+<h3>
+    {% if random_occupation.link %}
+        <a href="{{ random_occupation.link }}" target="_blank">{{ random_occupation.name }}</a>
+    {% else %}
+        {{ random_occupation.name }}
+    {% endif %}
+</h3>
+
+</body>
+</html>
