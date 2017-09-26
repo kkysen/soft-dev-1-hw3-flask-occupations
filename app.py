@@ -12,9 +12,14 @@ __date__ = '2017-09-22'
 
 from flask import Flask
 from flask import render_template
-from flask_compress import Compress
 
-from minify import minify
+try:
+    from flask_compress import Compress
+except ImportError:
+    import subprocess
+    subprocess.call('pip install flask-compress', shell=True)
+    from flask_compress import Compress
+
 from occupations import Occupations
 
 occupations = Occupations.in_united_states()

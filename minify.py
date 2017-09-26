@@ -1,5 +1,4 @@
 import bs4
-import functools
 import htmlmin
 import flask
 
