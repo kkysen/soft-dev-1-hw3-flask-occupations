@@ -25,8 +25,11 @@ app = Flask(__name__)
 @app.route('/occupations')
 def render_occupations():
     # type: () -> str
-    return render_template('occupations.jinja2', occupations=occupations,
-                           random_occupation=occupations.random_occupation())
+    return render_template(
+        'occupations.jinja2',
+        title='US Occupations',
+        occupations=occupations,
+        random_occupation=occupations.random_occupation())
 
 
 if __name__ == '__main__':
