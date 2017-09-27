@@ -11,12 +11,15 @@ __author__ = 'Khyber Sen'
 __date__ = '2017-09-22'
 
 from flask import Flask
+from flask import redirect
 from flask import render_template
+from flask import url_for
 
 try:
     from flask_compress import Compress
 except ImportError:
     import subprocess
+
     subprocess.call('pip install flask-compress', shell=True)
     from flask_compress import Compress
 
@@ -35,6 +38,11 @@ def render_occupations():
         title='US Occupations',
         occupations=occupations,
         random_occupation=occupations.random_occupation())
+
+
+@app.route('/')
+def home():
+    return redirect(url_for(render_occupations.func_name))
 
 
 if __name__ == '__main__':
