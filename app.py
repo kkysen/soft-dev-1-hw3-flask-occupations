@@ -24,7 +24,7 @@ except ImportError:
     subprocess.call('pip install flask-compress', shell=True)
     from flask_compress import Compress
 
-from occupations import Occupations
+from util.occupations import Occupations
 
 occupations = Occupations.in_united_states()
 

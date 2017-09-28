@@ -9,7 +9,7 @@ interface Sortable<T> {
 interface JQueryCollection extends JQuery<HTMLElement>, Sortable<HTMLElement> {
 }
 
-type StringKey<T> = (string) => T;
+type StringKey<T> = (s: string) => T;
 
 function identity<T>(t: T): T {
     return t;
@@ -23,8 +23,8 @@ class TableSorter {
     private readonly endRow: number;
 
     public constructor(selector: string, startRow: number, endRow: number) {
-        this.table = $(selector).find('tbody') as JQueryCollection;
-        this.rows = this.table.find('tr');
+        this.table = $(selector).find("tbody") as JQueryCollection;
+        this.rows = this.table.find("tr");
         this.startRow = startRow;
 
         if (endRow < 0) {
@@ -49,7 +49,7 @@ class TableSorter {
         type Row = HTMLTableRowElement;
 
         const parse = function (value: Row): T {
-            return key($(value).children('td').eq(column).text());
+            return key($(value).children("td").eq(column).text());
         };
 
         let order = 1;
@@ -73,6 +73,6 @@ class TableSorter {
 
 }
 
-const occupationsTable = new TableSorter('#occupations-table', 1, -1);
-occupationsTable.bindColumn('#occupation-column', identity);
-occupationsTable.bindColumn('#percent-column', i => parseFloat(i.slice(0, i.length - 1)));
+const occupationsTable = new TableSorter("#occupations-table", 1, -1);
+occupationsTable.bindColumn("#occupation-column", identity);
+occupationsTable.bindColumn("#percent-column", i => parseFloat(i.slice(0, i.length - 1)));

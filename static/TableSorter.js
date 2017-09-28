@@ -4,8 +4,8 @@ function identity(t) {
 }
 class TableSorter {
     constructor(selector, startRow, endRow) {
-        this.table = $(selector).find('tbody');
-        this.rows = this.table.find('tr');
+        this.table = $(selector).find("tbody");
+        this.rows = this.table.find("tr");
         this.startRow = startRow;
         if (endRow < 0) {
             endRow = this.rows.length - endRow;
@@ -23,7 +23,7 @@ class TableSorter {
         const startRow = _startRow;
         const endRow = _endRow;
         const parse = function (value) {
-            return key($(value).children('td').eq(column).text());
+            return key($(value).children("td").eq(column).text());
         };
         let order = 1;
         const sort = function () {
@@ -41,6 +41,6 @@ class TableSorter {
         });
     }
 }
-const occupationsTable = new TableSorter('#occupations-table', 1, -1);
-occupationsTable.bindColumn('#occupation-column', identity);
-occupationsTable.bindColumn('#percent-column', i => parseFloat(i.slice(0, i.length - 1)));
+const occupationsTable = new TableSorter("#occupations-table", 1, -1);
+occupationsTable.bindColumn("#occupation-column", identity);
+occupationsTable.bindColumn("#percent-column", i => parseFloat(i.slice(0, i.length - 1)));
