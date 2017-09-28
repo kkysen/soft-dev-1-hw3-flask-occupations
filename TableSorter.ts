@@ -58,7 +58,7 @@ class TableSorter {
                 function (e1: Row, e2: Row): number {
                     const t1: T = parse(e1);
                     const t2: T = parse(e2);
-                    return t1 == t2 ? 0 : t1 < t2 ? -order : order;
+                    return t1 === t2 ? 0 : t1 < t2 ? -order : order;
                 }).appendTo(table);
         };
 
@@ -75,4 +75,4 @@ class TableSorter {
 
 const occupationsTable = new TableSorter('#occupations-table', 1, -1);
 occupationsTable.bindColumn('#occupation-column', identity);
-occupationsTable.bindColumn('#percent-column', i => parseInt(i.slice(0, i.length - 1), 10));
+occupationsTable.bindColumn('#percent-column', i => parseFloat(i.slice(0, i.length - 1)));

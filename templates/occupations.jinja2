@@ -135,7 +135,7 @@
 
     const occupationsTable = new TableSorter('#occupations-table', 1, -1);
     occupationsTable.bindColumn('#occupation-column', identity);
-    occupationsTable.bindColumn('#percent-column', i => parseInt(i.slice(0, i.length - 1), 10));
+    occupationsTable.bindColumn('#percent-column', i => parseFloat(i.slice(0, i.length - 1)));
 
 </script>
 
